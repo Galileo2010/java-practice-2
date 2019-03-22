@@ -4,6 +4,7 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,18 +24,35 @@ public class MyMap {
     }
 
     public List<String> mapLetter() {
-        throw new NotImplementedException();
+        String shit = "abcdefghijklmnopqrstuvwxyz";
+        List<String> list = new ArrayList<>();
+        for (Integer s : array) {
+            String charAt = new String(String.valueOf(shit.charAt(s-1)));
+            list.add(charAt);
+        }
+        return list;
     }
 
     public List<String> mapLetters() {
-        throw new NotImplementedException();
+        String shit = "abcdefghijklmnopqrstuvwxyz";
+        ArrayList<String>result = new ArrayList<>();
+        for (Integer number : array) {
+            number--;
+            int x = number/26;
+            int y = number%26;
+            String s = "";
+            if (x != 0) s += shit.charAt(x-1);
+            s += shit.charAt(y);
+            result.add(s);
+        }
+        return result;
     }
 
     public List<Integer> sortFromBig() {
-        throw new NotImplementedException();
+        return array.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
     }
 
     public List<Integer> sortFromSmall() {
-        throw new NotImplementedException();
+        return array.stream().sorted().collect(Collectors.toList());
     }
 }
