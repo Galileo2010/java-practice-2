@@ -51,7 +51,24 @@ public class Reduce {
     }
 
     public Double getMedianInLinkList(SingleLink singleLink) {
-        return 0.0;    }
+        // 不知道此题什么意思
+//        int i = 0;
+//        while(singleLink.getNode(i)!= null)
+//        {
+//            i++;
+//        }
+//        if(i%2 == 0){
+//            return ((Double)singleLink.getNode(i/2) + (Double)singleLink.getNode(i/2-1))/2;
+//        }
+//        else
+//            return (Double) singleLink.getNode(i/2);
+        int size = arrayList.size();
+        if (size %2 == 0){
+            return (arrayList.get(size/2-1)+arrayList.get(size/2))/2.0;
+        }
+        else
+            return Double.valueOf(arrayList.get(size/2));
+    }
 
     public int getLastOdd() {
         for (int i = arrayList.size() - 1; i >= 0; i--)
